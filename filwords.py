@@ -11,8 +11,8 @@ class FillwordGame:
         self.score = 0
         self.level = 1
 
-        self.word_colors = {}      # { "СЛОВО": "#цвет" }
-        self.cell_to_word = {}     # { (row, col): "СЛОВО" }
+        self.word_colors = {}      
+        self.cell_to_word = {}     
 
         self.available_colors = [
             "#a8d8a8", "#ffd1dc", "#add8e6", "#ffffb3", "#ffcccb", "#c5cae9",
@@ -207,7 +207,7 @@ class FillwordGame:
             for j in range(self.size):
                 self.visible_grid[i][j] = grid_letters[i * self.size + j]
 
-        self.remaining_words = list(level_data['words'].keys())  # Храним слова в списке 
+        self.remaining_words = list(level_data['words'].keys())  
 
     def draw_grid(self):
         self.canvas.delete("all")
@@ -247,7 +247,7 @@ class FillwordGame:
         self.on_click(event)
 
     def on_release(self, event):
-        # Собираем слово из выделенных клеток
+        
         word = ''.join([
             self.visible_grid[r][c]
             for r, c in self.selected_cells
